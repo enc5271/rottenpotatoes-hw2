@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     if !@sort.nil?
       @movies = @movies.order(@sort)
     end
-    
+    session[:sort] = @sort
     #Part 2
     @all_ratings = Movie.ratings
     @ratings = params[:ratings] ? params[:ratings] : session[:ratings]
@@ -30,9 +30,7 @@ class MoviesController < ApplicationController
     else
       @ratings = Movie.ratings
     end
-    #Part 3
-    #session[:sort] = @sort
-    #session[:ratings] = @ratings
+    session[:ratings] = @ratings
   end
 
   def new
