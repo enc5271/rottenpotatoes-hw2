@@ -23,9 +23,11 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.ratings
     @ratings = params[:ratings] ? params[:ratings] : session[:ratings]
     if !@ratings.nil?
+      #Check to see if ratings is an array.
       if !@ratings.kind_of?(Array)
         @ratings = @ratings.keys
       end
+      #Query the model with the selected ratings
       @movies = @movies.where({rating: @ratings})
     else
       @ratings = Movie.ratings
