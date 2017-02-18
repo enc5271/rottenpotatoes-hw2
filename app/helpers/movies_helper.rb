@@ -4,7 +4,7 @@ module MoviesHelper
     count.odd? ?  "odd" :  "even"
   end
 
-  def header_style(header_type)
+  def headerType(header_type)
   	session[:sort] == header_type ? "hilite" :""
   end
 end
