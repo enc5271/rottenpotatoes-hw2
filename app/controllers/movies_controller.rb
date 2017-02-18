@@ -14,6 +14,8 @@ class MoviesController < ApplicationController
     @movies = Movie.all
 
     @all_ratings = Movie.ratings
+
+    @sort = params[:sort] ? params[:sort] : session[:sort]
   end
 
   def new
