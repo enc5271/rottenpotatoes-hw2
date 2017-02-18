@@ -5,6 +5,7 @@ module MoviesHelper
   end
 
   def headerType(header_type)
+  	puts "@sort=#{@sort}"
   	session[:sort] == header_type ? "hilite" : ""
   end
 end
